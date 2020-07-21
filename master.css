@@ -21,27 +21,11 @@ label {
   border-radius: 5px;
   background-color: #f0f0f0;
   padding: 20px;
-  background-image: linear-gradient(
-    to bottom,
-    #8ef4ff,
-    #7af1fb,
-    #63eef6,
-    #46ebf1,
-    #12e8eb
-  );
 }
 .container-main {
   border-radius: 5px;
   background-color: #ffffff;
   padding: 5px;
-  background-image: linear-gradient(
-    to bottom,
-    #70f9e7,
-    #60f5e8,
-    #4ff1e9,
-    #38ecea,
-    #12e8eb
-  );
 }
 
 /* Floating column for labels: 25% width */
@@ -90,12 +74,12 @@ h1 {
   background-color: #f0f0f0;
   padding: 12px;
   font-size: 30px;
-  background-image: linear-gradient(to top, #7ff3f9, #77f3f6, #70f2f2);
-  color: rgb(23, 106, 184);
+
+  color: rgb(10, 10, 10);
 }
 label {
   font-size: 13px;
-  color: rgb(3, 65, 122);
+  color: rgb(5, 5, 5);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -108,7 +92,4 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
-}
-body {
-  background-image: linear-gradient(to bottom, #4ff1e9, #38ecea, #12e8eb);
 }
