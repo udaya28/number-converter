@@ -1,5 +1,10 @@
+//input validation for binary octal decimal and hexadecimal
+//return true if valid or else false
 var isValid = {
   binary: function (value) {
+    if (value === '') {
+      return false;
+    }
     var numberArray = value.split('.');
     if (numberArray.length <= 2) {
       number = numberArray.join('');
@@ -17,6 +22,9 @@ var isValid = {
     }
   },
   octal: function (value) {
+    if (value === '') {
+      return false;
+    }
     var numberArray = value.split('.');
     if (numberArray.length <= 2) {
       number = numberArray.join('');
@@ -39,6 +47,9 @@ var isValid = {
     }
   },
   decimal: function (value) {
+    if (value === '') {
+      return false;
+    }
     var numberArray = value.split('.');
     if (numberArray.length <= 2) {
       number = numberArray.join('');
@@ -57,6 +68,9 @@ var isValid = {
     }
   },
   hexadecimal: function (value) {
+    if (value === '') {
+      return false;
+    }
     let arr = ['A', 'B', 'C', 'D', 'E', 'F'];
     let flag = 1;
     value = value.toUpperCase();
@@ -81,20 +95,56 @@ var isValid = {
   },
 };
 
-let x = isValid.hexadecimal('610757657');
-console.log(x);
-
 //
 //
-
+//setting event listeners
 var input = document.getElementsByTagName('input');
 // console.log(input);
+
 for (let i = 0; i < 4; i++) {
   input[i].onkeyup = function (e) {
     updated(e);
   };
 }
+
+//switching control flow
 function updated(e) {
-  console.log(e.target.value);
-  console.log(typeof e.target.name);
+  var element = e.target;
+  var value = element.value;
+  console.log(value);
+  var name = element.name;
+  console.log(name);
+  e.target.className = 'invalid';
+
+  switch (name) {
+    case 'binary':
+      {
+        console.log('hello bin');
+      }
+      break;
+    case 'octal':
+      {
+        console.log('hello oct');
+      }
+      break;
+    case 'decimal':
+      {
+        console.log('hello dec');
+      }
+      break;
+    case 'hexadecimal':
+      {
+        console.log('hello hex');
+      }
+      break;
+  }
 }
+
+document
+  .getElementsByTagName('button')[0]
+  .addEventListener('click', function () {
+    for (let i = 0; i < 4; i++) {
+      input[i].value = '';
+      input[i].className = 'valid';
+    }
+  });
