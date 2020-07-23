@@ -1,3 +1,4 @@
+// console.clear();
 //input validation for binary octal decimal and hexadecimal
 //return true if valid or else false
 var isValid = {
@@ -129,8 +130,6 @@ function updated(e) {
   var value = element.value;
   console.log(value);
   var name = element.name;
-  // console.log(name);
-  // e.target.className = 'invalid';
 
   switch (name) {
     case 'binary':
@@ -138,6 +137,10 @@ function updated(e) {
         resetAllColor();
         if (isValid.binary(value)) {
           element.className = 'valid';
+          value = convert(value, 2); //to decimal
+          input[1].value = (+value).toString(8);
+          input[2].value = value;
+          input[3].value = (+value).toString(16).toUpperCase();
         } else {
           element.className = 'invalid';
         }
@@ -148,6 +151,11 @@ function updated(e) {
         resetAllColor();
         if (isValid.octal(value)) {
           element.className = 'valid';
+          let binaryNumber = OctalToBinary(value);
+          value = convert(binaryNumber, 2); //to decimal
+          input[0].value = binaryNumber;
+          input[2].value = value;
+          input[3].value = (+value).toString(16).toUpperCase();
         } else {
           element.className = 'invalid';
         }
@@ -158,6 +166,9 @@ function updated(e) {
         resetAllColor();
         if (isValid.decimal(value)) {
           element.className = 'valid';
+          input[0].value = (+value).toString(2);
+          input[1].value = (+value).toString(8);
+          input[3].value = (+value).toString(16).toUpperCase();
         } else {
           element.className = 'invalid';
         }
@@ -168,10 +179,66 @@ function updated(e) {
         resetAllColor();
         if (isValid.hexadecimal(value) || value === '') {
           element.className = 'valid';
+          value = convert(value, 16); //to decimal
+          input[0].value = (+value).toString(2);
+          input[1].value = (+value).toString(8);
+          input[2].value = value;
         } else {
           element.className = 'invalid';
         }
       }
       break;
   }
+}
+
+// used to convert binary and hex to decimal
+function convert(value, base = 2) {
+  var [integer, fraction = ''] = value.toString().split('.');
+
+  return (
+    parseInt(integer, base) +
+    (integer[0] !== '-' || -1) *
+      fraction
+        .split('')
+        .reduceRight((r, a) => (r + parseInt(a, base)) / base, 0)
+  );
+}
+
+// Octal To Binary converter
+function OctalToBinary(octalNumber) {
+  var binary = '';
+  var arr = octalNumber.split('');
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+    switch (arr[i]) {
+      case '0':
+        binary += '000';
+        break;
+      case '1':
+        binary += '001';
+        break;
+      case '2':
+        binary += '010';
+        break;
+      case '3':
+        binary += '011';
+        break;
+      case '4':
+        binary += '100';
+        break;
+      case '5':
+        binary += '101';
+        break;
+      case '6':
+        binary += '110';
+        break;
+      case '7':
+        binary += '111';
+        break;
+      case '.':
+        binary += '.';
+        break;
+    }
+  }
+  return binary;
 }
