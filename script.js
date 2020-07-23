@@ -94,7 +94,17 @@ var isValid = {
     }
   },
 };
-
+//
+//
+//reset button
+document
+  .getElementsByTagName('button')[0]
+  .addEventListener('click', function () {
+    for (let i = 0; i < 4; i++) {
+      input[i].value = '';
+      input[i].className = 'valid';
+    }
+  });
 //
 //
 //setting event listeners
@@ -114,37 +124,44 @@ function updated(e) {
   console.log(value);
   var name = element.name;
   console.log(name);
-  e.target.className = 'invalid';
+  // e.target.className = 'invalid';
 
   switch (name) {
     case 'binary':
       {
-        console.log('hello bin');
+        if (isValid.binary(value)) {
+          element.className = 'valid';
+        } else {
+          element.className = 'invalid';
+        }
       }
       break;
     case 'octal':
       {
-        console.log('hello oct');
+        if (isValid.octal(value)) {
+          element.className = 'valid';
+        } else {
+          element.className = 'invalid';
+        }
       }
       break;
     case 'decimal':
       {
-        console.log('hello dec');
+        if (isValid.decimal(value)) {
+          element.className = 'valid';
+        } else {
+          element.className = 'invalid';
+        }
       }
       break;
     case 'hexadecimal':
       {
-        console.log('hello hex');
+        if (isValid.hexadecimal(value) || value === '') {
+          element.className = 'valid';
+        } else {
+          element.className = 'invalid';
+        }
       }
       break;
   }
 }
-
-document
-  .getElementsByTagName('button')[0]
-  .addEventListener('click', function () {
-    for (let i = 0; i < 4; i++) {
-      input[i].value = '';
-      input[i].className = 'valid';
-    }
-  });
