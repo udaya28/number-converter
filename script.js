@@ -105,6 +105,12 @@ document
       input[i].className = 'valid';
     }
   });
+
+function resetAllColor() {
+  for (let i = 0; i < 4; i++) {
+    input[i].className = 'valid';
+  }
+}
 //
 //
 //setting event listeners
@@ -123,12 +129,13 @@ function updated(e) {
   var value = element.value;
   console.log(value);
   var name = element.name;
-  console.log(name);
+  // console.log(name);
   // e.target.className = 'invalid';
 
   switch (name) {
     case 'binary':
       {
+        resetAllColor();
         if (isValid.binary(value)) {
           element.className = 'valid';
         } else {
@@ -138,6 +145,7 @@ function updated(e) {
       break;
     case 'octal':
       {
+        resetAllColor();
         if (isValid.octal(value)) {
           element.className = 'valid';
         } else {
@@ -147,6 +155,7 @@ function updated(e) {
       break;
     case 'decimal':
       {
+        resetAllColor();
         if (isValid.decimal(value)) {
           element.className = 'valid';
         } else {
@@ -156,6 +165,7 @@ function updated(e) {
       break;
     case 'hexadecimal':
       {
+        resetAllColor();
         if (isValid.hexadecimal(value) || value === '') {
           element.className = 'valid';
         } else {
