@@ -16,9 +16,9 @@ button {
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
-  
+
   letter-spacing: 2px;
-  background-color: rgb(168, 166, 166);
+  background-color: #1c114d;
   margin-top: 15px;
 }
 
@@ -31,12 +31,12 @@ label {
 /* Style the container */
 .container {
   border-radius: 5px;
-  background-color: #f0f0f0;
+  background-color: #d3eef1;
   padding: 20px;
 }
 .container-main {
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #d3eef1;
   padding: 5px;
 }
 
@@ -77,21 +77,27 @@ input:focus {
   outline: none;
 }
 label,
-h1 ,button{
+button {
   font-family: 'Acme', sans-serif;
 }
 h1 {
+  font-family: 'Nunito', sans-serif;
   text-align: center;
   border-radius: 5px;
-  background-color: #f0f0f0;
+  background-color: #d3eef1;
   padding: 12px;
   font-size: 30px;
 
   color: rgb(10, 10, 10);
+  color: #1c114d;
 }
 label {
   font-size: 13px;
   color: rgb(5, 5, 5);
+  color: #898ba9;
+}
+button {
+  color: white;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -110,11 +116,12 @@ input[type='number'] {
   background-color: rgb(248, 177, 190);
 }
 .valid {
-  background-color: rgb(255, 255, 255), 255);
+  background-color: rgb(255, 255, 255);
 }
 
-em{
+em {
   font-family: 'Acme', sans-serif;
   float: right;
   margin-top: 10px;
+  color: #898ba9;
 }
